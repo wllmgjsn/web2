@@ -1,6 +1,6 @@
 import express from "express";
-import { ErrorRequestHandler } from "express"
-import filmsRouter from "./routes/films"
+import { ErrorRequestHandler } from "express";
+import filmsRouter from "./routes/films";
 
 const app = express();
 
@@ -14,6 +14,5 @@ const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
 
 app.use(errorHandler);
 app.use('/films', filmsRouter);
-
 
 export default app;
