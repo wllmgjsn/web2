@@ -4,7 +4,11 @@ GET {{baseUrl}}/films
 ###
 
 # GET
-GET {{baseUrl}}/films?minimum-duration=140
+GET {{baseUrl}}/films?minDuration=140
+###
+
+#
+GET {{baseUrl}}/films?like=in
 ###
 
 #

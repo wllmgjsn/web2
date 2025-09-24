@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { Film, NewFilm } from "../types";
+import { capitalizeFirstLetter } from "../utils/utils";
 
 const films: Film[] = [
   {
@@ -35,17 +36,28 @@ const films: Film[] = [
 
 const router = Router();
 
+
+// GET /
 router.get("/", (req, res) => {
-  if(!req.query["minimum-duration"]){
-    return res.json(films);
+  let { minDuration, like } = req.query; // like is a substring used in function startsWith beneath
+  let filteredFilms = films;
+
+  if(typeof(minDuration) === 'string'){
+    const minDurationInt = Number(minDuration);
+    if(!isNaN(minDurationInt)){
+      filteredFilms = filteredFilms.filter((film) => film.duration >= minDurationInt);
+    }
   }
-  const minDuration = Number(req.query["minimum-duration"]);
-  const filteredFilms = films.filter((film) => {
-    return film.duration >= minDuration;
-  });
+
+  if(typeof(like) === 'string' && like !== ""){
+    const formatedString = capitalizeFirstLetter(like.toLocaleLowerCase());
+    filteredFilms = filteredFilms.filter((film) => film.title.startsWith(formatedString));
+  }
+
   return res.json(filteredFilms);
 });
 
+//GET /:id
 router.get("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const film = films.find((film) => film.id === id);
@@ -55,6 +67,7 @@ router.get("/:id", (req, res) => {
   return res.json(film);
 })
 
+// POST /
 router.post("/", (req, res) => {
   const body: unknown = req.body;
   if (
@@ -75,9 +88,8 @@ router.post("/", (req, res) => {
 
   // Destructuring
   const { title, director, duration, budget, description, imageUrl } = body as NewFilm;
-
   const filmId = films.reduce((maxId, film) => (film.id > maxId ? film.id : maxId), 0) + 1;
-
+  // Restructu
   const newFilm : Film = {
     id : filmId,
     title,
@@ -87,10 +99,12 @@ router.post("/", (req, res) => {
     description,
     imageUrl
   };
-
   films.push(newFilm);
 
   return res.json(newFilm);
-})
+});
+
+
 
 export default router;
+
