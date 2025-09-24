@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { Film, NewFilm } from "../types";
-import { capitalizeFirstLetter } from "../utils/utils";
 
 const films: Film[] = [
   {
@@ -50,8 +49,8 @@ router.get("/", (req, res) => {
   }
 
   if(typeof(like) === 'string' && like !== ""){
-    const formatedString = capitalizeFirstLetter(like.toLocaleLowerCase());
-    filteredFilms = filteredFilms.filter((film) => film.title.startsWith(formatedString));
+    const search = like.toLowerCase();
+    filteredFilms = filteredFilms.filter((film) => film.title.toLowerCase().startsWith(search));
   }
 
   return res.json(filteredFilms);
