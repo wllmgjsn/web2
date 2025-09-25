@@ -1,0 +1,32 @@
+@baseUrl = http://localhost:3000
+# GET
+GET {{baseUrl}}/films
+###
+
+# GET
+GET {{baseUrl}}/films?minDuration=140
+###
+
+#
+GET {{baseUrl}}/films?like=in
+###
+
+#
+GET {{baseUrl}}/films/3
+###
+
+
+#
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+  "title": "Interstellar",
+  "director": "Christopher Nolan",
+  "duration": 169,
+  "budget": 165000000,
+  "description": "Dans un futur proche où la Terre se meurt, un groupe d'explorateurs voyage à travers un trou de ver pour trouver un nouvel endroit où l'humanité pourra survivre.",
+  "imageUrl": "https://example.com/images/interstellar-poster.jpg"
+}
+
+###
