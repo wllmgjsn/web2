@@ -43,8 +43,8 @@ const App = () => {
         name={cinema2Name}
         movies={[movie3, movie4]}
       ></CinemaComponent>
-
-      <Footer></Footer>
+      
+      <Footer children={<p>© 2025 MyApp</p>}></Footer>
     </div>
   );
 };

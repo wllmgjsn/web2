@@ -1,13 +1,13 @@
 interface FooterProps {
-  image: string;
-  children: React.ReactNode;
+  image?: string;
+  children?: React.ReactNode;
 }
 
 const Footer = (props: FooterProps) => {
   return (
     <div className="footer">
-      <img src={props.image} alt="footerimg"></img>
-      <div className="footer-content">{props.children}</div>
+      {props.image && <img src={props.image} alt="footerimg"></img>}
+      {props.children && <div className="footer-content">{props.children}</div>}
     </div>
   );
 };

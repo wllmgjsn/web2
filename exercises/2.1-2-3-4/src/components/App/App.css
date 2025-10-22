@@ -1,5 +1,10 @@
+:root {
+    --primary-color : #9b9bc4;
+}
+
+
 .header {
-    background-color: #8787d8;
+    background-color: var(--primary-color);
     text-align: center;
 }
 
@@ -10,4 +15,9 @@
 
 .header-title{
     margin: 0;
+}
+
+.footer-content{
+    text-align: center;
+    background-color: var(--primary-color);
 }
