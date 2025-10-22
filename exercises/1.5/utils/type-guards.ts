@@ -4,7 +4,7 @@
  * @returns
  */
 
-import { NewFilm } from "../types";
+import { Film, NewFilm } from "../types";
 
 /**
  * Check if the value is a string and inform typescript of this
@@ -44,4 +44,26 @@ const isNewFilm = (body: unknown): body is NewFilm => {
   return true;
 };
 
-export { isString, isNumber, isNewFilm };
+const isFilm = (body: unknown): body is Film => {
+  if (
+    !body ||
+    typeof body !== "object" ||
+    !("id" in body) ||
+    !("title" in body) ||
+    !("director" in body) ||
+    !("duration" in body) ||
+    typeof body.title !== "string" ||
+    typeof body.director !== "string" ||
+    typeof body.duration !== "number" ||
+    !body.title.trim() ||
+    !body.director.trim() ||
+    body.duration <= 0
+  ) {
+    return false;
+  }
+  return true;
+};
+
+
+
+export { isString, isNumber, isNewFilm, isFilm };

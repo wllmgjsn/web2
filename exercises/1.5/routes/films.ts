@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { Film, NewFilm } from "../types";
-import { isNewFilm } from "../utils/type-guards";
+import { Film } from "../types";
+import { isFilm, isNewFilm } from "../utils/type-guards";
 
 const films: Film[] = [
   {
@@ -88,7 +88,7 @@ router.post("/", (req, res) => {
   }
 
   // Destructuring (on créé un nouvel objet NewFilm pour pouvoir définir un objet Film avec un id autogénéré)
-  const { title, director, duration, budget, description, imageUrl } = body as NewFilm;
+  const { title, director, duration, budget, description, imageUrl } = body;
   const filmId = films.reduce((maxId, film) => (film.id > maxId ? film.id : maxId), 0) + 1;
   
   const nf : Film = {
@@ -106,6 +106,78 @@ router.post("/", (req, res) => {
   return res.json(nf);
 });
 
+// PUT
+
+router.put("/", (req, res) => {
+    const body : unknown = req.body;
+    
+    if(!isFilm(body)){
+      return res.sendStatus(400);
+    }
+    let i = 0;
+    for(const f of films){
+      if(f.id === body.id){
+        films[i] = body;
+        return res.sendStatus(200);
+      }
+      i++;
+    }
+    return res.sendStatus(404);
+});
+
+router.delete("/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  
+  if(id < 1) {return res.sendStatus(400);}
+  const film = films.find((film) => film.id === id);
+  
+  if(!film){
+    return res.sendStatus(404);
+  }
+
+  films.splice(id-1, 1);
+  return res.sendStatus(200);
+});
+
+router.patch("/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const film = films.find((film) => film.id === id);
+  
+  if(!film){
+    return res.sendStatus(404);
+  }
+
+  console.log("OK");
+
+  const body : unknown = req.body;
+
+  if (
+    !body ||
+    typeof body !== "object" ||
+    ("title" in body &&
+      (typeof body.title !== "string" || !body.title.trim())) ||
+    ("director" in body &&
+      (typeof body.director !== "string" || !body.director.trim())) ||
+    ("duration" in body &&
+      (typeof body.duration !== "number" || body.duration <= 0)) ||
+    ("budget" in body && (typeof body.budget !== "number" || body.budget <= 0)) ||
+    ("description" in body && (typeof body.description !== "string" || !body.description.trim())) ||
+    ("imageUrl" in body && (typeof body.imageUrl !== "string" || !body.imageUrl.trim())) 
+  ) {
+    return res.sendStatus(400);
+    }
+
+  const { title, director, duration, budget, description, imageUrl } : Partial<Film> = body;
+
+  if(title) film.title = title;
+  if(director) film.director = director;
+  if(duration) film.duration = duration;
+  if(budget) film.budget = budget;
+  if(description) film.description = description;
+  if(imageUrl) film.imageUrl = imageUrl;
+
+  return res.sendStatus(200);
+});
 
 
 export default router;

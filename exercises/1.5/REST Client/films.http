@@ -7,16 +7,16 @@ GET {{baseUrl}}/films
 GET {{baseUrl}}/films?minDuration=140
 ###
 
-#
+# GET
 GET {{baseUrl}}/films?like=in
 ###
 
-#
-GET {{baseUrl}}/films/3
+# GET
+GET {{baseUrl}}/films/4
 ###
 
 
-#
+# POST
 POST {{baseUrl}}/films
 Content-Type: application/json
 
@@ -29,4 +29,33 @@ Content-Type: application/json
   "imageUrl": "https://example.com/images/interstellar-poster.jpg"
 }
 
+###
+
+# PUT
+PUT {{baseUrl}}/films
+Content-Type: application/json
+
+{
+"id" : 4, 
+"title": "Interstellar",
+"director": "Cristopher Nolan",
+"duration": 169,
+"budget": 170000000
+}
+###
+
+# PATCH
+PATCH {{baseUrl}}/films/4
+Content-Type: application/json
+
+{
+  "title" : "Alice in Wonderland",
+  "director" : "Tim Burton",
+  "description" : "Alice, une jeune fille curieuse, aperçoit un lapin blanc pressé qui consulte sa montre. Intriguée, elle le suit et tombe dans un terrier qui la mène dans un monde étrange et merveilleux",
+  "budget" : 5000000
+}
+###
+
+# DELETE
+DELETE {{baseUrl}}/films/2
 ###

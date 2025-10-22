@@ -38,7 +38,7 @@ const router = Router();
 
 // GET /
 router.get("/", (req, res) => {
-  let { minDuration, like } = req.query; // like is a substring used in function startsWith beneath
+  const { minDuration, like } = req.query; // like is a substring used in function startsWith beneath
   let filteredFilms = films;
 
   if(typeof(minDuration) === 'string'){
@@ -64,7 +64,7 @@ router.get("/:id", (req, res) => {
     return res.sendStatus(404);
   }
   return res.json(film);
-})
+});
 
 // POST /
 router.post("/", (req, res) => {

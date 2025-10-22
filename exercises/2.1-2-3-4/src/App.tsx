@@ -1,66 +1,80 @@
-const App = () => {
-  const cinema1Name = "UGC DeBrouckère";
-  const pageTitle = "Informations sur les films dans les cinémas";
+// Toujours avoir une interface si on souhaite créer un type abstrait !
+interface Movie {
+  title: string;
+  director: string;
+}
+interface PageTitleProps {
+  title: string;
+}
+interface CinemaProps {
+  name: string;
+  movies: Movie[];
+}
 
-  const cinema1Movie1Title = "Film 1 - DeBrouckère";
-  const cinema1Movie1Director = "Director A";
-  const cinema1Movie2Title = "Film 2 - DeBrouckère";
-  const cinema1Movie2Director = "Director B";
-
-  const cinema2Name = "UGC Toison d'Or";
-  const cinema2Movie1Title = "Film 1 - Toison d'Or";
-  const cinema2Movie1Director = "Director C";
-  const cinema2Movie2Title = "Film 2 - Toison d'Or";
-  const cinema2Movie2Director = "Director D";
-
+const MovieComponent = ({ title, director }: Movie) => {
   return (
     <div>
-      <Title title={pageTitle}></Title>
-      
-      <Cinema
-        cinemaName={cinema1Name}
-        cinemaMovie1Title={cinema1Movie1Title}
-        cinemaMovie1Director={cinema1Movie1Director}
-        cinemaMovie2Title={cinema1Movie2Title}
-        cinemaMovie2Director={cinema1Movie2Director}
-      ></Cinema>
-
-      <Cinema
-        cinemaName={cinema2Name}
-        cinemaMovie1Title={cinema2Movie1Title}
-        cinemaMovie1Director={cinema2Movie1Director}
-        cinemaMovie2Title={cinema2Movie2Title}
-        cinemaMovie2Director={cinema2Movie2Director}
-      ></Cinema>
-
+      <strong>{title}</strong> - Réalisateur : {director}
     </div>
   );
 };
 
-const Title = (props: { title: string }) => {
-  return <h1>{props.title}</h1>;
-};
-
-const Cinema = (props: {
-  cinemaName: string;
-  cinemaMovie1Title: string;
-  cinemaMovie1Director: string;
-  cinemaMovie2Title : string;
-  cinemaMovie2Director: string;
-}) => {
+const CinemaComponent = ({ name, movies }: CinemaProps) => {
   return (
     <div>
-      <h2>{props.cinemaName}</h2>
+      <h2>{name}</h2>
       <ul>
-        <li>
-          <strong>{props.cinemaMovie1Title}</strong> - Réalisateur :{" "}
-          {props.cinemaMovie1Director}
-        </li>
-        <li>
-          <strong>{props.cinemaMovie2Title}</strong> - Réalisateur :{" "}
-          {props.cinemaMovie2Director}
-        </li>
+        {movies.map((c, i) => (
+          <li key={i}>
+            <MovieComponent
+              title={c.title}
+              director={c.director}
+            ></MovieComponent>
+          </li>
+        ))}
       </ul>
+    </div>
+  );
+};
+
+const PageTitleComponent = ({ title }: PageTitleProps) => {
+  return <h1>{title}</h1>;
+};
+
+const App = () => {
+  const pageTitle = "Informations sur les films dans les cinémas";
+
+  const cinema1Name = "UGC DeBrouckère";
+  const cinema2Name = "UGC Toison d'Or";
+
+  const movie1 = {
+    title: "HAIKYU-THE DUMPSTER BATTLE",
+    director: "Susumu Mitsunaka",
+  };
+  const movie2 = {
+    title: "GOODBYE JULIA ",
+    director: "Mohamed Kordofani",
+  };
+  const movie3 = {
+    title: "THE WATCHERS",
+    director: "Ishana Night Shyamalan",
+  };
+  const movie4 = {
+    title: "BAD BOYS: RIDE OR DIE",
+    director: "Adil El Arbi, Bilall Fallah",
+  };
+
+  return (
+    <div>
+      <PageTitleComponent title={pageTitle}></PageTitleComponent>
+      <CinemaComponent
+        name={cinema1Name}
+        movies={[movie1, movie2]}
+      ></CinemaComponent>
+      <CinemaComponent
+        name={cinema2Name}
+        movies={[movie3, movie4]}
+      ></CinemaComponent>
     </div>
   );
 };
