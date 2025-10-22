@@ -1,0 +1,20 @@
+.online {
+  color: rgb(0, 255, 0);
+}
+
+.offline {
+  color: red;
+}
+
+body {
+  font-family: monospace;
+  color: white;
+  background-color: black;
+}
+
+.user-card{
+  background-color: rgb(31, 31, 31);
+  margin-block: 20px;
+  margin-inline: 20px;
+}
+
