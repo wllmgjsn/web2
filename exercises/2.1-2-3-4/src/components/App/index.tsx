@@ -1,45 +1,5 @@
-// Toujours avoir une interface si on souhaite créer un type abstrait !
-interface Movie {
-  title: string;
-  director: string;
-}
-interface PageTitleProps {
-  title: string;
-}
-interface CinemaProps {
-  name: string;
-  movies: Movie[];
-}
-
-const MovieComponent = ({ title, director }: Movie) => {
-  return (
-    <div>
-      <strong>{title}</strong> - Réalisateur : {director}
-    </div>
-  );
-};
-
-const CinemaComponent = ({ name, movies }: CinemaProps) => {
-  return (
-    <div>
-      <h2>{name}</h2>
-      <ul>
-        {movies.map((c, i) => (
-          <li key={i}>
-            <MovieComponent
-              title={c.title}
-              director={c.director}
-            ></MovieComponent>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-const PageTitleComponent = ({ title }: PageTitleProps) => {
-  return <h1>{title}</h1>;
-};
+import CinemaComponent from "../Cinema";
+import PageTitleComponent from "../PageTitle";
 
 const App = () => {
   const pageTitle = "Informations sur les films dans les cinémas";
