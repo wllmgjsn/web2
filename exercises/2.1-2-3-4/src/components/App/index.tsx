@@ -1,7 +1,11 @@
 import CinemaComponent from "../Cinema";
 import PageTitleComponent from "../PageTitle";
+import Header from "../Header";
+import Footer from "../Footer";
+import "./App.css";
 
 const App = () => {
+
   const pageTitle = "Informations sur les films dans les cinémas";
 
   const cinema1Name = "UGC DeBrouckère";
@@ -26,6 +30,10 @@ const App = () => {
 
   return (
     <div>
+      <Header 
+      image="https://upload.wikimedia.org/wikipedia/fr/thumb/c/cf/Logo_UGC_2001-2018.svg/1200px-Logo_UGC_2001-2018.svg.png"
+      children={<h3 className="header-title">Bienvenue sur notre site</h3>}
+      ></Header>
       <PageTitleComponent title={pageTitle}></PageTitleComponent>
       <CinemaComponent
         name={cinema1Name}
@@ -35,6 +43,8 @@ const App = () => {
         name={cinema2Name}
         movies={[movie3, movie4]}
       ></CinemaComponent>
+
+      <Footer></Footer>
     </div>
   );
 };

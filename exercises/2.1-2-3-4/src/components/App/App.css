@@ -1,0 +1,13 @@
+.header {
+    background-color: #8787d8;
+    text-align: center;
+}
+
+.header img {
+    filter: brightness(200);
+    padding: 10px;
+}
+
+.header-title{
+    margin: 0;
+}
