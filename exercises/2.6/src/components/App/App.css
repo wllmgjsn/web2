@@ -1,0 +1,23 @@
+:root {
+    --primary-color : #9b9bc4;
+}
+
+
+.header {
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.header img {
+    filter: brightness(200);
+    padding: 10px;
+}
+
+.header-title{
+    margin: 0;
+}
+
+.footer-content{
+    text-align: center;
+    background-color: var(--primary-color);
+}
