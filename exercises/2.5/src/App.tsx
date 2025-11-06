@@ -21,9 +21,7 @@ function App() {
       <div className="card">
         <ClickCounter
           text="count is "
-          message1="You are an amateur in the art of clicking !"
-          message2="You are a professional in the art of clicking !"
-          message3="You are a master in the art of clicking !"
+          message1="You are a master in the art of clicking !"
         ></ClickCounter>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
