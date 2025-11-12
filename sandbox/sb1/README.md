@@ -20,5 +20,27 @@ faire la différence entre du HTML de base et nos composants
 
 Un composant react est généralement une **fonction** qui doit être **exportée** à la fin du fichier
 
+Un composant React doit impérativement ne renvoyer qu'un seul élément : cela peut être un fragment
+ou un div
+```
+function App() {
+  return (
+    <>
+    </>
+  )
+}
+
+ou
+
+function App() {
+  return (
+    <div>
+    </div>
+  )
+}
+```
+
+
+
 
 

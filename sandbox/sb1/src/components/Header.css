@@ -1,0 +1,15 @@
+.header{
+  display: flex;
+  font-family: Arial;
+  background-color: rgb(40, 92, 190);
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  padding-inline: 1em;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+.header h1 {
+    margin: 0;
+}

@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Cinema from "./components/Cinema";
+import CountButton from "./components/CountButton";
+import Header from "./components/Header";
 
+const moviesCinema1 = [
+  {
+    title: "HAIKYU-THE DUMPSTER BATTLE",
+    director: "Susumu Mitsunaka",
+  },
+  {
+    title: "GOODBYE JULIA",
+    director: "Mohamed Kordofani",
+  },
+  {
+    title: "INCEPTION",
+    director: "Christopher Nolan",
+  },
+  {
+    title: "PARASITE",
+    director: "Bong Joon-ho",
+  },
+];
+const moviesCinema2 = [
+  {
+    title: "THE WATCHERS",
+    director: "Ishana Night Shyamalan",
+  },
+  {
+    title: "BAD BOYS: RIDE OR DIE",
+    director: "Adil El Arbi, Bilall Fallah",
+  },
+  {
+    title: "TENET",
+    director: "Christopher Nolan",
+  },
+  {
+    title: "THE IRISHMAN",
+    director: "Martin Scorsese",
+  },
+];
+
+// On passe le prop title à Header
+// Remarquez que le composant App utilise d'autres composants...
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="main-frame">
+      <Header title="Website"></Header>
+      <div className="content-section">
+        <div className="card">
+          <CountButton></CountButton>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+{
+  /**
+   * Données à insérer
+  <Cinema name="UGC Toison d'or" movies={moviesCinema1} isOpen={true}></Cinema>
+  <Cinema name="CinéEspace Arlon" movies={moviesCinema2} isOpen={false}></Cinema>
+  <CountButton></CountButton>
+  */
+}
