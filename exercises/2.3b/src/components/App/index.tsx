@@ -14,8 +14,6 @@ const App = () => {
 
   const footerText = "© 2023 My App";
 
-
-
   return (
     <div>
       <PageTitle title={title}></PageTitle>

@@ -2,40 +2,27 @@ import { useState } from "react";
 
 interface ClickCounterProps {
   text: string;
-  message1: string;
-  message2?: string;
-  message3?: string;
+  message: string;
 }
 
-const ClickCounter = ({
-  text,
-  message1,
-  message2,
-  message3,
-}: ClickCounterProps) => {
+const ClickCounter = ({ text, message }: ClickCounterProps) => {
   const [count, setCount] = useState(0);
+  const [isHoveringCounter, setHover] = useState(false);
 
   const handleCounterClick = () => {
     setCount((count) => count + 1);
   };
 
-  const handleMouseEnterCounter = () => {
-
-  };
-
-  const handleMouseLeavesCounter = () => {};
-
   return (
-    <div>
-      {count >= 10 && message1 && <p>{message1}</p>}
-      {count >= 20 && message2 && <p>{message2}</p>}
-      {count >= 30 && <p>{message3}</p>}
+    <div className="counter">
+      {count >= 10 && <p>{message}</p>}
       <button
         onClick={handleCounterClick}
-        onMouseEnter={handleMouseEnterCounter}
-        onMouseLeave={handleMouseLeavesCounter}
-      >
-        {text}{count}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        >
+        {!isHoveringCounter && text}
+        {isHoveringCounter && `count is ${count}`}
       </button>
     </div>
   );
