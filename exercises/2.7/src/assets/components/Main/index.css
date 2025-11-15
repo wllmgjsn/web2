@@ -1,0 +1,30 @@
+.main-card {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 75%;
+    font-family: Arial, Helvetica, sans-serif;
+    height: fit-content;
+}
+
+.new-movie-form {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1rem;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.075);
+    border: solid rgba(255, 255, 255, 0.082) 2px;
+}
+
+.new-movie-form form {
+    text-align: center;
+}
+
+.new-movie-form input, button {
+    margin: 10px;
+}
