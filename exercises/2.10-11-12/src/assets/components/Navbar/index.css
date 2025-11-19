@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    gap: 10px;
+    height: 30px;
+}
+
+.navbar button {
+    all: unset;
+}
+
+.navbar button:hover {
+    margin-bottom: 5px;
+    transition: ease-in-out 0.2s;
+}

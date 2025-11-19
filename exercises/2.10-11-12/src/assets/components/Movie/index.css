@@ -1,0 +1,26 @@
+.movie-list{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-card{
+    color: white;
+    width: 25%;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.075);
+    border: solid rgba(255, 255, 255, 0.082) 2px;
+    list-style-type: none;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.movie-card li {
+    padding: 0;
+}
+
+.movie-card img {
+    max-width: 100%;
+}
