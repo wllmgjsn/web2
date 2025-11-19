@@ -2,9 +2,6 @@ import "./index.css";
 import { useState, type SyntheticEvent } from "react";
 import type { Movie } from "../../types";
 import MovieList from "../Movie/list";
-import Header from "../Header";
-import Footer from "../Footer";
-import NavBar from "../Navbar";
 
 const defaultMovies: Movie[] = [
   {
