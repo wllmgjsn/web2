@@ -1,6 +1,6 @@
 import './App.css'
 import Movies from './assets/components/Main';
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import NavBar from './assets/components/Navbar';
 import Header from './assets/components/Header';
 import Footer from './assets/components/Footer';
