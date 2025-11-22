@@ -7,6 +7,7 @@ interface MovieCardProps {
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
+
   return (
     <div className="card">
      

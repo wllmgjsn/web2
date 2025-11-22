@@ -9,7 +9,7 @@ const MoviesPage = () => {
   return (
     <div>
       <main className="page-content">
-        <PageTitle title="My favorite movies" />
+        <PageTitle title="All movies" />
         <MovieListView movies={movies} />
 
         <br />

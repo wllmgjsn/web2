@@ -9,6 +9,7 @@ import { Movie, MovieContext } from "../types";
 
 const defaultMovies: Movie[] = [
   {
+    id : 1,
     title: "Shang-Chi and the Legend of the Ten Rings",
     director: "Destin Daniel Cretton",
     duration: 132,
@@ -19,16 +20,18 @@ const defaultMovies: Movie[] = [
     budget: 150,
   },
   {
+    id : 2,
     title: "The Matrix",
     director: "Lana Wachowski, Lilly Wachowski",
     duration: 136,
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg",
+      "https://www.rogerebert.com/wp-content/uploads/2024/03/The-Matrix.jpg",
     description:
       "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
     budget: 63,
   },
   {
+    id : 3,
     title: "Summer Wars",
     director: "Mamoru Hosoda",
     duration: 114,
@@ -39,6 +42,7 @@ const defaultMovies: Movie[] = [
     budget: 18.7,
   },
   {
+    id : 4,
     title: "The Meyerowitz Stories",
     director: "Noah Baumbach",
     duration: 112,
@@ -48,6 +52,7 @@ const defaultMovies: Movie[] = [
       "An estranged family gathers together in New York City for an event celebrating the artistic work of their father.",
   },
   {
+    id : 5,
     title: "her",
     director: "Spike Jonze",
     duration: 126,
