@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App, { HomePage, CinemaPage, MoviesPage } from "./components/App";
+import App from "./components/App";
+import CinemaPage from "./components/pages/CinemaPage";
+import HomePage from "./components/pages/HomePage";
+import MoviesPage from "./components/pages/MoviesPage";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AddMoviePage from "./components/pages/AddMoviePage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +24,10 @@ const router = createBrowserRouter([
       {
         path : "/movies",
         element : <MoviesPage></MoviesPage>
+      },
+      {
+        path : "/movies/add",
+        element : <AddMoviePage></AddMoviePage>
       }
     ]
   }
