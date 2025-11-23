@@ -25,7 +25,11 @@ const RandomDog = () => {
   };
 
   useEffect(() => {
-    fetchDogImage();
+    const interval = setInterval(fetchDogImage, 5000);
+    return () => {
+      clearInterval(interval);
+      console.log("Cleared interval");
+    }
   }, []);
 
   if (!dog) {

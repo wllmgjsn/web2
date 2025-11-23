@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RandomDog from "./RandomDog";
 
 const App = () => {
@@ -11,18 +11,6 @@ const App = () => {
         <RandomDog key={`${refresh}2`} />
         <RandomDog key={`${refresh}3`} />
       </div>
-
-      <button
-        onClick={() => setRefresh(!refresh)}
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          fontSize: "1em",
-          cursor: "pointer",
-        }}
-      >
-        Refresh Dogs
-      </button>
     </>
   );
 };
