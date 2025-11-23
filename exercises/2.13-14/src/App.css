@@ -6,17 +6,17 @@
   height: 300px;
 }
 
-.fade-in {
+.fade-in{
   opacity: 0;
+  font-size: x-large;
   animation: fadeIn 1s ease forwards;
-  font-size: larger;
 }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1;}
 }
+
+
 
 .logo {
   height: 6em;
