@@ -1,0 +1,20 @@
+@baseUrl = http://localhost:3000
+
+### Login the default admin
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+# @name admin
+
+{
+    "username":"admin",
+    "password":"admin"
+}
+
+### Read all comments
+GET {{baseUrl}}/comments
+
+### Read all comments from film with id 1
+GET {{baseUrl}}/comments?filmId=1
+
+### Delete a comment
+DELETE {{baseUrl}}/comments/2

@@ -58,6 +58,15 @@ interface JwtPayload {
   iat: number; // Issued at time (in seconds since the epoch)
 }
 
+interface Comment {
+  id : number
+  userId : number,
+  filmId : number,
+  content : string
+}
+
+type NewComment = Omit<Comment, "id">
+
 export type {
   Pizza,
   NewPizza,
@@ -70,5 +79,7 @@ export type {
   AuthenticatedRequest,
   JwtPayload,
   Film,
-  NewFilm
+  NewFilm,
+  Comment,
+  NewComment
 };

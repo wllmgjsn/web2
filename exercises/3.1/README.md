@@ -8,4 +8,3 @@
 | **`comments`** | GET | JWT | READ ALL FILTERED : Lire toutes les ressources de la collection et pouvoir les filtrer  |
 | **`comments`** | POST | JWT | CREATE ONE : Créer une ressource basée sur un body au format `{title : string, comment : string, userId : number}` |
 | **`comments/:id`** | DELETE | JWT | DELETE : supprimer une ressource de la collection
--
